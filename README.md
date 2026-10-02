@@ -2,6 +2,12 @@
 
 Count a bin of the same LEGO part, mixed colors, and save a BrickStore file.
 
+Download the installer (this link stays the same):
+
+https://github.com/NEXUS-Systems-Core/bricktally/releases/latest/download/BrickTallySetup.exe
+
+The installer is unsigned. Windows may show a blue SmartScreen box the first time. Click More info, then Run anyway. Short steps are in docs/OPERATOR.md.
+
 ## Using it
 
 1. Double-click BrickTally.
@@ -20,23 +26,12 @@ If a button says **Update available - Install now**, click it. The app closes, i
 
 ## First-time setup on the laptop
 
-Someone who can install Python does this once, on the Windows laptop:
-
-1. Install Python 3.12 from python.org. Tick "Add python to PATH".
-2. Copy this folder to the laptop.
-3. Double-click `build_windows.bat`. It builds `dist\BrickTally\BrickTally.exe`.
-4. Copy that whole `dist\BrickTally` folder wherever the operator will run it. They double-click `BrickTally.exe`.
-
-After that, the operator does not need Python. Updates come from the button.
+The operator does not install Python. Download BrickTallySetup.exe from the link above and double-click it. It installs for that Windows user only, asks for no admin password, and puts a BrickTally icon on the desktop. Steps are in docs/OPERATOR.md.
 
 ## For the person who ships updates
 
-The update button does nothing until `UPDATE_REPO` in `bricktally/config.py` is a real `owner/repo`. Create that GitHub repo, push this folder, then:
+Tag `vX.Y.Z` and push the tag. The release build writes that version into the app and the installer, then publishes the Windows zip, its SHA256, and BrickTallySetup.exe. The update button reads the zip and the SHA256. It will not install a zip whose checksum does not match.
 
-1. Bump `__version__` in `bricktally/config.py` (for example `0.1.1`).
-2. Commit, tag `v0.1.1`, and push the tag.
-3. GitHub Actions builds the Windows zip, writes a SHA256 file, and publishes the release.
+The installer is not code-signed. Operators see SmartScreen until a certificate is added.
 
-The app compares that tag to its own version. It will not install a zip whose SHA256 does not match.
-
-To build on the laptop without GitHub, run `build_windows.bat`.
+To build the app folder on a Windows machine without GitHub, run `build_windows.bat`. Compiling `installer/bricktally.iss` with Inno Setup produces BrickTallySetup.exe.
