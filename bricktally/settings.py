@@ -42,6 +42,9 @@ class Settings:
         self.calibrated: dict[str, list[list[float]]] = {}
         self.learned: dict[str, list[list[float]]] = {}
         self.inventory: list[dict] = []
+        # 0 means estimate piece area from the photo. A positive value is the
+        # operator override, in pixels, for one piece.
+        self.piece_area = 0
 
     @property
     def directory(self) -> Path:
@@ -83,6 +86,10 @@ class Settings:
         self.calibrated = dict(data.get("calibrated") or {})
         self.learned = dict(data.get("learned") or {})
         self.inventory = list(data.get("inventory") or [])
+        try:
+            self.piece_area = max(0, int(data.get("piece_area") or 0))
+        except (TypeError, ValueError):
+            self.piece_area = 0
         return self
 
     def save(self) -> None:
@@ -94,6 +101,7 @@ class Settings:
             "calibrated": self.calibrated,
             "learned": self.learned,
             "inventory": self.inventory,
+            "piece_area": self.piece_area,
         }
         self.path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 

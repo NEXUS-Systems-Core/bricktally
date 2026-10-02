@@ -22,6 +22,7 @@ from PySide6.QtWidgets import (
     QMainWindow,
     QMessageBox,
     QPushButton,
+    QSpinBox,
     QTableWidget,
     QTableWidgetItem,
     QVBoxLayout,
@@ -118,6 +119,15 @@ class MainWindow(QMainWindow):
         self.condition_combo.setCurrentIndex(0 if self.settings.condition == "U" else 1)
         self.condition_combo.currentIndexChanged.connect(self._condition_changed)
         top.addWidget(self.condition_combo)
+        top.addSpacing(16)
+        top.addWidget(QLabel("Piece px"))
+        self.piece_area = QSpinBox()
+        self.piece_area.setRange(0, 200000)
+        self.piece_area.setSingleStep(100)
+        self.piece_area.setSpecialValueText("auto")
+        self.piece_area.setValue(int(self.settings.piece_area or 0))
+        self.piece_area.editingFinished.connect(self._piece_area_changed)
+        top.addWidget(self.piece_area)
         top.addStretch(1)
         layout.addLayout(top)
 
@@ -237,6 +247,10 @@ class MainWindow(QMainWindow):
 
     def _condition_changed(self) -> None:
         self.settings.condition = str(self.condition_combo.currentData())
+        self.settings.save()
+
+    def _piece_area_changed(self) -> None:
+        self.settings.piece_area = int(self.piece_area.value())
         self.settings.save()
 
     def _grab(self) -> np.ndarray | None:
@@ -394,6 +408,7 @@ class MainWindow(QMainWindow):
             self.palette,
             background_bgr=background,
             wb_gains=self.settings.gains_array(),
+            piece_area=self.settings.piece_area or None,
         )
         self.raw = frame
         self.count_result = result

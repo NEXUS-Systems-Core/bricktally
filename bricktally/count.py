@@ -27,6 +27,9 @@ class Piece:
     review: bool
     reason: str
     locked: bool = False
+    contour: np.ndarray | None = None
+    low_confidence: bool = False
+    color_bgr: tuple[int, int, int] = (40, 180, 60)
 
 
 @dataclass
@@ -45,13 +48,24 @@ class CountResult:
         return [piece.index for piece in self.pieces if piece.review or piece.touching]
 
 
+def _bgr_of_hex(text: str) -> tuple[int, int, int]:
+    text = text.lstrip("#")
+    red, green, blue = int(text[0:2], 16), int(text[2:4], 16), int(text[4:6], 16)
+    return blue, green, red
+
+
 def _piece_from_blob(index: int, blob: Blob, palette: Palette) -> Piece:
     match = palette.match(blob.mean_lab)
-    review = match.review or blob.touching
+    review = match.review or blob.touching or blob.low_confidence
     reason = match.reason
     if blob.touching:
         extra = f"touching, about {blob.count}"
         reason = f"{reason}; {extra}" if reason else extra
+    if blob.low_confidence and "low confidence" not in reason:
+        extra = "low confidence"
+        reason = f"{reason}; {extra}" if reason else extra
+    # Colour-match confidence stays as matched. A split or area estimate does
+    # not get a made-up higher score; the review flag carries the doubt.
     return Piece(
         index=index,
         box=(blob.x, blob.y, blob.w, blob.h),
@@ -65,6 +79,9 @@ def _piece_from_blob(index: int, blob: Blob, palette: Palette) -> Piece:
         confidence=match.confidence,
         review=review,
         reason=reason,
+        contour=blob.contour,
+        low_confidence=blob.low_confidence,
+        color_bgr=_bgr_of_hex(match.color.hex),
     )
 
 
@@ -74,12 +91,19 @@ def count_image(
     background_bgr: np.ndarray | None = None,
     wb_gains: np.ndarray | None = None,
     min_area: int = 400,
+    piece_area: int | None = None,
 ) -> CountResult:
     frame = apply_gains(image_bgr, wb_gains)
     background = None
     if background_bgr is not None:
         background = apply_gains(background_bgr, wb_gains)
-    blobs = segment_pieces(frame, background_bgr=background, min_area=min_area)
+    blobs = segment_pieces(
+        frame,
+        background_bgr=background,
+        min_area=min_area,
+        piece_area=piece_area,
+        palette=palette,
+    )
     pieces = [_piece_from_blob(i, blob, palette) for i, blob in enumerate(blobs)]
     return CountResult(pieces=pieces)
 
@@ -113,23 +137,43 @@ def rematch_unlocked(result: CountResult, palette: Palette) -> None:
         piece.reason = reason
 
 
+def _dashed_rect(canvas: np.ndarray, x: int, y: int, w: int, h: int, color: tuple[int, int, int]) -> None:
+    step = 8
+    x2, y2 = x + w, y + h
+    for start in range(x, x2, step * 2):
+        cv2.line(canvas, (start, y), (min(start + step, x2), y), color, 2, cv2.LINE_AA)
+        cv2.line(canvas, (start, y2), (min(start + step, x2), y2), color, 2, cv2.LINE_AA)
+    for start in range(y, y2, step * 2):
+        cv2.line(canvas, (x, start), (x, min(start + step, y2)), color, 2, cv2.LINE_AA)
+        cv2.line(canvas, (x2, start), (x2, min(start + step, y2)), color, 2, cv2.LINE_AA)
+
+
 def draw_overlay(image_bgr: np.ndarray, result: CountResult) -> np.ndarray:
     canvas = image_bgr.copy()
     for piece in result.pieces:
-        x, y, w, h = piece.box
-        color = (40, 180, 255) if piece.review or piece.touching else (40, 180, 60)
-        cv2.rectangle(canvas, (x, y), (x + w, y + h), color, 2)
-        label = piece.color_name
-        if piece.count > 1:
-            label = f"{label} x{piece.count}"
-        cv2.putText(
-            canvas,
-            label[:28],
-            (x, max(16, y - 6)),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.45,
-            color,
-            1,
-            cv2.LINE_AA,
-        )
+        color = piece.color_bgr
+        if piece.contour is not None and len(piece.contour) >= 3:
+            cv2.drawContours(canvas, [piece.contour], -1, color, 2, cv2.LINE_AA)
+        else:
+            x, y, w, h = piece.box
+            cv2.rectangle(canvas, (x, y), (x + w, y + h), color, 2)
+        flagged = piece.review or piece.touching or piece.low_confidence
+        if flagged:
+            x, y, w, h = piece.box
+            _dashed_rect(canvas, x, y, w, h, (0, 220, 255))
+        if piece.count > 1 or flagged:
+            x, y, _, _ = piece.box
+            label = piece.color_name
+            if piece.count > 1:
+                label = f"{label} x{piece.count}"
+            cv2.putText(
+                canvas,
+                label[:28],
+                (x, max(16, y - 6)),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.4,
+                (0, 220, 255) if flagged else color,
+                1,
+                cv2.LINE_AA,
+            )
     return canvas
