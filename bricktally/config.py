@@ -1,4 +1,7 @@
-"""Single place for version and the update repo."""
+"""Single place for version and the update repo.
+
+Release builds stamp __version__ from the git tag before packaging.
+"""
 
 __version__ = "0.1.0"
 
