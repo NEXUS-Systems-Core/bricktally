@@ -55,7 +55,7 @@ def _bgr_of_hex(text: str) -> tuple[int, int, int]:
 
 
 def _piece_from_blob(index: int, blob: Blob, palette: Palette) -> Piece:
-    match = palette.match(blob.mean_lab)
+    match = palette.match(blob.mean_lab, photo=True)
     review = match.review or blob.touching or blob.low_confidence
     reason = match.reason
     if blob.touching:
@@ -124,7 +124,7 @@ def rematch_unlocked(result: CountResult, palette: Palette) -> None:
     for piece in result.pieces:
         if piece.locked:
             continue
-        match = palette.match(piece.lab)
+        match = palette.match(piece.lab, photo=True)
         piece.color_id = match.color.id
         piece.color_name = match.color.name
         piece.distance = match.distance
