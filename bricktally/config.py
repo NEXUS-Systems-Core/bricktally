@@ -3,7 +3,7 @@
 __version__ = "0.1.0"
 
 # Fill in once the GitHub repo exists, as "owner/name".
-UPDATE_REPO = "OWNER/REPO"
+UPDATE_REPO = "NEXUS-Systems-Core/bricktally"
 
 APP_NAME = "BrickTally"
 BRICKOGNIZE_URL = "https://api.brickognize.com/predict/"
