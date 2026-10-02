@@ -1,0 +1,1506 @@
+{
+  "source": "BrickLink Color Guide",
+  "source_url": "https://www.bricklink.com/catalogColors.asp",
+  "fetched": "2026-10-02",
+  "count": 214,
+  "colors": [
+    {
+      "id": 1,
+      "name": "White",
+      "hex": "#F3F4EF",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Tan",
+      "hex": "#E1D19D",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 3,
+      "name": "Yellow",
+      "hex": "#FFDA19",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 4,
+      "name": "Orange",
+      "hex": "#FF8D34",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 5,
+      "name": "Red",
+      "hex": "#D82424",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 6,
+      "name": "Green",
+      "hex": "#009D48",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 7,
+      "name": "Blue",
+      "hex": "#196BCF",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 8,
+      "name": "Brown",
+      "hex": "#70462E",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 9,
+      "name": "Light Gray",
+      "hex": "#B8BAAE",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 10,
+      "name": "Dark Gray",
+      "hex": "#848375",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 11,
+      "name": "Black",
+      "hex": "#2E2E2E",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 12,
+      "name": "Trans-Clear",
+      "hex": "#EEEEEE",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 13,
+      "name": "Trans-Brown",
+      "hex": "#939484",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 14,
+      "name": "Trans-Dark Blue",
+      "hex": "#00296B",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 15,
+      "name": "Trans-Light Blue",
+      "hex": "#68BCC5",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 16,
+      "name": "Trans-Neon Green",
+      "hex": "#C0F500",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 17,
+      "name": "Trans-Red",
+      "hex": "#9C0010",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 18,
+      "name": "Trans-Neon Orange",
+      "hex": "#FF4231",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 19,
+      "name": "Trans-Yellow",
+      "hex": "#EBF72D",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 20,
+      "name": "Trans-Green",
+      "hex": "#217625",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 21,
+      "name": "Chrome Gold",
+      "hex": "#F1F2E1",
+      "type": "chrome",
+      "type_id": 3
+    },
+    {
+      "id": 22,
+      "name": "Chrome Silver",
+      "hex": "#DCDCDC",
+      "type": "chrome",
+      "type_id": 3
+    },
+    {
+      "id": 23,
+      "name": "Pink",
+      "hex": "#FBD0DE",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 24,
+      "name": "Purple",
+      "hex": "#8622A1",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 25,
+      "name": "Salmon",
+      "hex": "#FF7D5D",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 26,
+      "name": "Light Salmon",
+      "hex": "#FCC7B7",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 27,
+      "name": "Rust",
+      "hex": "#B24817",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 28,
+      "name": "Nougat",
+      "hex": "#F1A56B",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 29,
+      "name": "Earth Orange",
+      "hex": "#E6881D",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 31,
+      "name": "Medium Orange",
+      "hex": "#FFAC00",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 32,
+      "name": "Light Orange",
+      "hex": "#FFBC36",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 33,
+      "name": "Light Yellow",
+      "hex": "#FEE891",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 34,
+      "name": "Lime",
+      "hex": "#BEE13C",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 35,
+      "name": "Light Lime",
+      "hex": "#ECEEBD",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 36,
+      "name": "Bright Green",
+      "hex": "#2BD043",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 37,
+      "name": "Medium Green",
+      "hex": "#91DF8C",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 38,
+      "name": "Light Green",
+      "hex": "#D7EED1",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 39,
+      "name": "Dark Turquoise",
+      "hex": "#0BABA8",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 40,
+      "name": "Light Turquoise",
+      "hex": "#00C5BC",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 41,
+      "name": "Aqua",
+      "hex": "#BCE5DC",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 42,
+      "name": "Medium Blue",
+      "hex": "#81B0E4",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 43,
+      "name": "Violet",
+      "hex": "#3448A4",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 44,
+      "name": "Light Violet",
+      "hex": "#C9CAE2",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 46,
+      "name": "Glow In Dark Opaque",
+      "hex": "#D4D5C9",
+      "type": "milky",
+      "type_id": 7
+    },
+    {
+      "id": 47,
+      "name": "Dark Pink",
+      "hex": "#EF5BB3",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 48,
+      "name": "Sand Green",
+      "hex": "#98B69C",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 49,
+      "name": "Very Light Gray",
+      "hex": "#D8D9CE",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 50,
+      "name": "Trans-Dark Pink",
+      "hex": "#CE1D9B",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 51,
+      "name": "Trans-Purple",
+      "hex": "#5525B7",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 52,
+      "name": "Chrome Blue",
+      "hex": "#5C66A4",
+      "type": "chrome",
+      "type_id": 3
+    },
+    {
+      "id": 54,
+      "name": "Sand Purple",
+      "hex": "#BC9CAF",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 55,
+      "name": "Sand Blue",
+      "hex": "#93ABB9",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 56,
+      "name": "Rose Pink",
+      "hex": "#F2D3D1",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 57,
+      "name": "Chrome Antique Brass",
+      "hex": "#645A4C",
+      "type": "chrome",
+      "type_id": 3
+    },
+    {
+      "id": 58,
+      "name": "Sand Red",
+      "hex": "#C58D80",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 59,
+      "name": "Dark Red",
+      "hex": "#83211F",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 60,
+      "name": "Milky White",
+      "hex": "#D4D3DD",
+      "type": "milky",
+      "type_id": 7
+    },
+    {
+      "id": 61,
+      "name": "Pearl Light Gold",
+      "hex": "#E7AE5A",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 62,
+      "name": "Light Blue",
+      "hex": "#C8D9E1",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 63,
+      "name": "Dark Blue",
+      "hex": "#234065",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 64,
+      "name": "Chrome Green",
+      "hex": "#3CB371",
+      "type": "chrome",
+      "type_id": 3
+    },
+    {
+      "id": 65,
+      "name": "Metallic Gold",
+      "hex": "#B8860B",
+      "type": "metallic",
+      "type_id": 6
+    },
+    {
+      "id": 66,
+      "name": "Pearl Light Gray",
+      "hex": "#ACB7C0",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 67,
+      "name": "Metallic Silver",
+      "hex": "#C0C0C0",
+      "type": "metallic",
+      "type_id": 6
+    },
+    {
+      "id": 68,
+      "name": "Dark Orange",
+      "hex": "#AC5112",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 69,
+      "name": "Dark Tan",
+      "hex": "#A98F6A",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 70,
+      "name": "Metallic Green",
+      "hex": "#BDB573",
+      "type": "metallic",
+      "type_id": 6
+    },
+    {
+      "id": 71,
+      "name": "Magenta",
+      "hex": "#BA177E",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 72,
+      "name": "Maersk Blue",
+      "hex": "#6BC4E1",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 73,
+      "name": "Medium Violet",
+      "hex": "#6F75CF",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 74,
+      "name": "Trans-Medium Blue",
+      "hex": "#76A3C8",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 76,
+      "name": "Medium Lime",
+      "hex": "#DFE000",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 77,
+      "name": "Pearl Dark Gray",
+      "hex": "#666660",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 78,
+      "name": "Pearl Sand Blue",
+      "hex": "#868FAA",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 80,
+      "name": "Dark Green",
+      "hex": "#30533B",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 81,
+      "name": "Flat Dark Gold",
+      "hex": "#AD7118",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 82,
+      "name": "Chrome Pink",
+      "hex": "#AA4D8E",
+      "type": "chrome",
+      "type_id": 3
+    },
+    {
+      "id": 83,
+      "name": "Pearl White",
+      "hex": "#FFFFFF",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 84,
+      "name": "Copper",
+      "hex": "#AC6D52",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 85,
+      "name": "Dark Bluish Gray",
+      "hex": "#7D7C78",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 86,
+      "name": "Light Bluish Gray",
+      "hex": "#B9B9B9",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 87,
+      "name": "Sky Blue",
+      "hex": "#71DDF0",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 88,
+      "name": "Reddish Brown",
+      "hex": "#7C442C",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 89,
+      "name": "Dark Purple",
+      "hex": "#7045BA",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 90,
+      "name": "Light Nougat",
+      "hex": "#F7CFB4",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 91,
+      "name": "Light Brown",
+      "hex": "#966541",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 93,
+      "name": "Light Purple",
+      "hex": "#AF3195",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 94,
+      "name": "Medium Dark Pink",
+      "hex": "#EDA1AE",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 95,
+      "name": "Flat Silver",
+      "hex": "#8D949C",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 96,
+      "name": "Very Light Orange",
+      "hex": "#FEDCA4",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 97,
+      "name": "Royal Blue",
+      "hex": "#506CEF",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 98,
+      "name": "Trans-Orange",
+      "hex": "#E96F01",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 99,
+      "name": "Very Light Bluish Gray",
+      "hex": "#D7D8D3",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 100,
+      "name": "Glitter Trans-Dark Pink",
+      "hex": "#CE1D9B",
+      "type": "glitter",
+      "type_id": 8
+    },
+    {
+      "id": 101,
+      "name": "Glitter Trans-Clear",
+      "hex": "#EEEEEE",
+      "type": "glitter",
+      "type_id": 8
+    },
+    {
+      "id": 102,
+      "name": "Glitter Trans-Purple",
+      "hex": "#3A2B82",
+      "type": "glitter",
+      "type_id": 8
+    },
+    {
+      "id": 103,
+      "name": "Bright Light Yellow",
+      "hex": "#FCEB82",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 104,
+      "name": "Bright Pink",
+      "hex": "#FCB1DB",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 105,
+      "name": "Bright Light Blue",
+      "hex": "#B5D6FF",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 106,
+      "name": "Fabuland Brown",
+      "hex": "#BE744E",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 107,
+      "name": "Trans-Pink",
+      "hex": "#FF8298",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 108,
+      "name": "Trans-Bright Green",
+      "hex": "#10CB31",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 109,
+      "name": "Dark Royal Blue",
+      "hex": "#2032B0",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 110,
+      "name": "Bright Light Orange",
+      "hex": "#FDBF0E",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 111,
+      "name": "Speckle Silver",
+      "hex": "#7C7E7C",
+      "type": "speckle",
+      "type_id": 9
+    },
+    {
+      "id": 113,
+      "name": "Trans-Aqua",
+      "hex": "#B7C8BF",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 114,
+      "name": "Trans-Light Purple",
+      "hex": "#B97AB1",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 115,
+      "name": "Pearl Gold",
+      "hex": "#E79E1D",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 116,
+      "name": "Speckle Copper",
+      "hex": "#5F4E47",
+      "type": "speckle",
+      "type_id": 9
+    },
+    {
+      "id": 118,
+      "name": "Glow In Dark Trans",
+      "hex": "#BDC6AD",
+      "type": "milky",
+      "type_id": 7
+    },
+    {
+      "id": 119,
+      "name": "Pearl Very Light Gray",
+      "hex": "#D4D2CD",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 120,
+      "name": "Dark Brown",
+      "hex": "#50372F",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 121,
+      "name": "Trans-Neon Yellow",
+      "hex": "#FFD700",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 122,
+      "name": "Chrome Black",
+      "hex": "#544E4F",
+      "type": "chrome",
+      "type_id": 3
+    },
+    {
+      "id": 123,
+      "name": "Mx White",
+      "hex": "#F2EDE5",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 124,
+      "name": "Mx Light Bluish Gray",
+      "hex": "#BDBDB8",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 125,
+      "name": "Mx Light Gray",
+      "hex": "#C6C8C3",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 126,
+      "name": "Mx Charcoal Gray",
+      "hex": "#534E4A",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 127,
+      "name": "Mx Tile Gray",
+      "hex": "#A19A8F",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 128,
+      "name": "Mx Black",
+      "hex": "#322D29",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 129,
+      "name": "Mx Red",
+      "hex": "#E04F32",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 130,
+      "name": "Mx Pink Red",
+      "hex": "#FB9392",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 131,
+      "name": "Mx Tile Brown",
+      "hex": "#5A4238",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 132,
+      "name": "Mx Brown",
+      "hex": "#9C7C4F",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 133,
+      "name": "Mx Buff",
+      "hex": "#EED9A4",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 134,
+      "name": "Mx Terracotta",
+      "hex": "#B66A4B",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 135,
+      "name": "Mx Orange",
+      "hex": "#F58D26",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 136,
+      "name": "Mx Light Orange",
+      "hex": "#FFB647",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 137,
+      "name": "Mx Light Yellow",
+      "hex": "#F8E469",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 138,
+      "name": "Mx Ochre Yellow",
+      "hex": "#E5C230",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 139,
+      "name": "Mx Lemon",
+      "hex": "#F1E145",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 140,
+      "name": "Mx Olive Green",
+      "hex": "#8FA05A",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 141,
+      "name": "Mx Pastel Green",
+      "hex": "#B1D52C",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 142,
+      "name": "Mx Aqua Green",
+      "hex": "#75DBB6",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 143,
+      "name": "Mx Tile Blue",
+      "hex": "#0046A5",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 144,
+      "name": "Mx Medium Blue",
+      "hex": "#75A2CC",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 145,
+      "name": "Mx Pastel Blue",
+      "hex": "#7DC1D8",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 146,
+      "name": "Mx Teal Blue",
+      "hex": "#4C7D89",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 147,
+      "name": "Mx Violet",
+      "hex": "#BE9BC5",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 148,
+      "name": "Mx Pink",
+      "hex": "#EDA1AE",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 149,
+      "name": "Mx Clear",
+      "hex": "#EEEEEE",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 150,
+      "name": "Medium Nougat",
+      "hex": "#D59459",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 151,
+      "name": "Speckle Gold",
+      "hex": "#AB9421",
+      "type": "speckle",
+      "type_id": 9
+    },
+    {
+      "id": 152,
+      "name": "Light Aqua",
+      "hex": "#C0F4E7",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 153,
+      "name": "Dark Azure",
+      "hex": "#38AEEB",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 154,
+      "name": "Lavender",
+      "hex": "#D0B8ED",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 155,
+      "name": "Olive Green",
+      "hex": "#A9A45A",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 156,
+      "name": "Medium Azure",
+      "hex": "#70DCF3",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 157,
+      "name": "Medium Lavender",
+      "hex": "#C38BD4",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 158,
+      "name": "Yellowish Green",
+      "hex": "#DBED94",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 159,
+      "name": "Glow In Dark White",
+      "hex": "#ECECDD",
+      "type": "milky",
+      "type_id": 7
+    },
+    {
+      "id": 160,
+      "name": "Fabuland Orange",
+      "hex": "#EF9121",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 161,
+      "name": "Dark Yellow",
+      "hex": "#DD982E",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 162,
+      "name": "Glitter Trans-Light Blue",
+      "hex": "#68BCC5",
+      "type": "glitter",
+      "type_id": 8
+    },
+    {
+      "id": 163,
+      "name": "Glitter Trans-Neon Green",
+      "hex": "#C0F500",
+      "type": "glitter",
+      "type_id": 8
+    },
+    {
+      "id": 164,
+      "name": "Trans-Light Orange",
+      "hex": "#E99A3A",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 165,
+      "name": "Neon Orange",
+      "hex": "#FA5947",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 166,
+      "name": "Neon Green",
+      "hex": "#DBF355",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 167,
+      "name": "Reddish Orange",
+      "hex": "#FF5500",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 168,
+      "name": "Umber",
+      "hex": "#5B3E2E",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 169,
+      "name": "Sienna",
+      "hex": "#D5712E",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 170,
+      "name": "Satin Trans-Yellow",
+      "hex": "#EBF72D",
+      "type": "satin",
+      "type_id": 5
+    },
+    {
+      "id": 171,
+      "name": "Lemon",
+      "hex": "#EDDC44",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 172,
+      "name": "Warm Yellowish Orange",
+      "hex": "#FFD788",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 173,
+      "name": "Ochre Yellow",
+      "hex": "#EBB957",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 174,
+      "name": "Blue Violet",
+      "hex": "#8A7FDD",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 175,
+      "name": "Warm Pink",
+      "hex": "#FFBAB7",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 176,
+      "name": "Mx Foil Black",
+      "hex": "#322D29",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 210,
+      "name": "Mx Foil Dark Gray",
+      "hex": "#948F84",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 211,
+      "name": "Mx Foil Light Gray",
+      "hex": "#D1CDBD",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 212,
+      "name": "Mx Foil Dark Green",
+      "hex": "#5E734E",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 213,
+      "name": "Mx Foil Light Green",
+      "hex": "#B3C068",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 214,
+      "name": "Mx Foil Dark Blue",
+      "hex": "#4B8AA4",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 215,
+      "name": "Mx Foil Light Blue",
+      "hex": "#83A7A9",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 216,
+      "name": "Mx Foil Violet",
+      "hex": "#8B6E82",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 217,
+      "name": "Mx Foil Red",
+      "hex": "#BB5D51",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 218,
+      "name": "Mx Foil Yellow",
+      "hex": "#FFEE77",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 219,
+      "name": "Mx Foil Orange",
+      "hex": "#FB9D2B",
+      "type": "modulex",
+      "type_id": 10
+    },
+    {
+      "id": 220,
+      "name": "Coral",
+      "hex": "#FF765C",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 221,
+      "name": "Trans-Light Green",
+      "hex": "#94E5AB",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 222,
+      "name": "Glitter Trans-Orange",
+      "hex": "#D04010",
+      "type": "glitter",
+      "type_id": 8
+    },
+    {
+      "id": 223,
+      "name": "Satin Trans-Light Blue",
+      "hex": "#68BCC5",
+      "type": "satin",
+      "type_id": 5
+    },
+    {
+      "id": 224,
+      "name": "Satin Trans-Dark Pink",
+      "hex": "#CE1D9B",
+      "type": "satin",
+      "type_id": 5
+    },
+    {
+      "id": 225,
+      "name": "Dark Nougat",
+      "hex": "#CA6F2D",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 226,
+      "name": "Trans-Light Bright Green",
+      "hex": "#71EB54",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 227,
+      "name": "Clikits Lavender",
+      "hex": "#E0AAD9",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 228,
+      "name": "Satin Trans-Clear",
+      "hex": "#EEEEEE",
+      "type": "satin",
+      "type_id": 5
+    },
+    {
+      "id": 229,
+      "name": "Satin Trans-Brown",
+      "hex": "#939484",
+      "type": "satin",
+      "type_id": 5
+    },
+    {
+      "id": 230,
+      "name": "Satin Trans-Purple",
+      "hex": "#8320B7",
+      "type": "satin",
+      "type_id": 5
+    },
+    {
+      "id": 231,
+      "name": "Dark Salmon",
+      "hex": "#FF6326",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 232,
+      "name": "Satin Trans-Dark Blue",
+      "hex": "#1552E2",
+      "type": "satin",
+      "type_id": 5
+    },
+    {
+      "id": 233,
+      "name": "Satin Trans-Bright Green",
+      "hex": "#7FE15B",
+      "type": "satin",
+      "type_id": 5
+    },
+    {
+      "id": 234,
+      "name": "Trans-Medium Purple",
+      "hex": "#9C41B6",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 235,
+      "name": "Reddish Gold",
+      "hex": "#E7891B",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 236,
+      "name": "Neon Yellow",
+      "hex": "#F3F304",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 237,
+      "name": "Bionicle Copper",
+      "hex": "#985750",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 238,
+      "name": "Bionicle Gold",
+      "hex": "#B9752F",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 239,
+      "name": "Bionicle Silver",
+      "hex": "#A59287",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 240,
+      "name": "Medium Brown",
+      "hex": "#9B7056",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 241,
+      "name": "Medium Tan",
+      "hex": "#FBC685",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 242,
+      "name": "Dark Olive Green",
+      "hex": "#76753F",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 243,
+      "name": "Pearl Sand Purple",
+      "hex": "#B5A1BA",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 244,
+      "name": "Pearl Black",
+      "hex": "#282725",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 245,
+      "name": "Lilac",
+      "hex": "#8570DD",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 246,
+      "name": "Light Lilac",
+      "hex": "#CDCCEE",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 247,
+      "name": "Little Robots Blue",
+      "hex": "#5DBFE4",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 248,
+      "name": "Fabuland Lime",
+      "hex": "#ADD237",
+      "type": "solid",
+      "type_id": 1
+    },
+    {
+      "id": 249,
+      "name": "Reddish Copper",
+      "hex": "#D06926",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 250,
+      "name": "Metallic Copper",
+      "hex": "#C58259",
+      "type": "metallic",
+      "type_id": 6
+    },
+    {
+      "id": 251,
+      "name": "Trans-Black",
+      "hex": "#777777",
+      "type": "trans",
+      "type_id": 2
+    },
+    {
+      "id": 252,
+      "name": "Pearl Red",
+      "hex": "#E54952",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 253,
+      "name": "Pearl Green",
+      "hex": "#13A452",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 254,
+      "name": "Pearl Blue",
+      "hex": "#3977C7",
+      "type": "pearl",
+      "type_id": 4
+    },
+    {
+      "id": 255,
+      "name": "Pearl Brown",
+      "hex": "#815542",
+      "type": "pearl",
+      "type_id": 4
+    }
+  ]
+}
