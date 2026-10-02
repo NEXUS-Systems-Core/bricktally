@@ -11,6 +11,7 @@ permissions:
 jobs:
   windows:
     runs-on: windows-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -21,17 +22,126 @@ jobs:
       - name: Install
         run: python -m pip install -r requirements.txt pyinstaller
 
+      - name: Stamp version from tag
+        shell: pwsh
+        run: |
+          $ver = "${{ github.ref_name }}" -replace '^v',''
+          if ($ver -notmatch '^\d+\.\d+\.\d+$') { throw "Tag must look like v1.2.3, got ${{ github.ref_name }}" }
+          python scripts/stamp_version.py $ver
+          python -c "from bricktally.config import __version__; assert __version__ == '$ver', __version__"
+          "APP_VERSION=$ver" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8NoBOM
+
       - name: Build
         shell: cmd
         run: call build_windows.bat
 
+      - name: Bundle smoke test
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $exe = Join-Path (Get-Location) "dist\BrickTally\BrickTally.exe"
+          if (-not (Test-Path $exe)) { throw "missing $exe" }
+          $work = Split-Path $exe
+          $out = Join-Path (Get-Location) "selftest-out.txt"
+          $err = Join-Path (Get-Location) "selftest-err.txt"
+          $marker = Join-Path $work "bricktally-selftest.txt"
+          if (Test-Path $marker) { Remove-Item $marker }
+          $p = Start-Process -FilePath $exe -ArgumentList "--selftest" -WorkingDirectory $work -PassThru -NoNewWindow -RedirectStandardOutput $out -RedirectStandardError $err
+          if (-not $p.WaitForExit(180000)) {
+            Stop-Process -Id $p.Id -Force
+            throw "selftest timed out after 180s"
+          }
+          Write-Host "exit=$($p.ExitCode)"
+          Write-Host "---- stdout ----"
+          if (Test-Path $out) { Get-Content $out }
+          Write-Host "---- stderr ----"
+          if (Test-Path $err) { Get-Content $err }
+          $text = ""
+          if (Test-Path $out) { $text += (Get-Content $out -Raw) }
+          if (Test-Path $err) { $text += (Get-Content $err -Raw) }
+          $printed = $text -match "(?m)^OK\s*$"
+          $marked = (Test-Path $marker) -and ((Get-Content $marker -Raw).Trim() -eq "OK")
+          if ($p.ExitCode -ne 0) { throw "selftest exit code $($p.ExitCode)" }
+          if (-not $printed -and -not $marked) { throw "selftest did not print OK" }
+          if (-not $printed) { Write-Host "OK was not on the console; marker file was OK" }
+          if (Test-Path $marker) { Remove-Item $marker }
+
+      - name: Install Inno Setup
+        run: choco install innosetup -y
+
+      - name: Build installer
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+          $cmd = Get-Command iscc -ErrorAction SilentlyContinue
+          $iscc = if ($cmd) { $cmd.Source } else { "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" }
+          if (-not (Test-Path $iscc)) { throw "iscc not found" }
+          & $iscc "/DAppVersion=$env:APP_VERSION" "installer\bricktally.iss"
+          if ($LASTEXITCODE -ne 0) { throw "iscc exit $LASTEXITCODE" }
+          if (-not (Test-Path "dist\BrickTallySetup.exe")) { throw "BrickTallySetup.exe was not written" }
+
+      - name: Installer smoke test
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          function Show-Context($msg) {
+            Write-Host $msg
+            Write-Host "LOCALAPPDATA=$env:LOCALAPPDATA"
+            Write-Host "APPDATA=$env:APPDATA"
+            $programs = Join-Path $env:LOCALAPPDATA "Programs"
+            if (Test-Path $programs) { Get-ChildItem $programs | ForEach-Object { Write-Host $_.FullName } }
+            if (Test-Path setup.log) { Get-Content setup.log -Tail 120 }
+            throw $msg
+          }
+          $markerDir = Join-Path $env:APPDATA "BrickTally"
+          New-Item -ItemType Directory -Force -Path $markerDir | Out-Null
+          $marker = Join-Path $markerDir "ci-keep.txt"
+          Set-Content -Path $marker -Value "operator-data" -Encoding ascii
+          $setup = Join-Path (Get-Location) "dist\BrickTallySetup.exe"
+          $p = Start-Process -FilePath $setup -ArgumentList "/VERYSILENT","/SUPPRESSMSGBOXES","/NORESTART","/LOG=setup.log" -Wait -PassThru
+          if ($p.ExitCode -ne 0) { Show-Context "setup exit $($p.ExitCode)" }
+          $installed = Join-Path $env:LOCALAPPDATA "Programs\BrickTally\BrickTally.exe"
+          $helper = Join-Path $env:LOCALAPPDATA "Programs\BrickTally\BrickTallyUpdater.exe"
+          if (-not (Test-Path $installed)) { Show-Context "installed exe missing: $installed" }
+          if (-not (Test-Path $helper)) { Show-Context "updater missing beside installed exe" }
+          $work = Split-Path $installed
+          $out = Join-Path (Get-Location) "installed-selftest-out.txt"
+          $err = Join-Path (Get-Location) "installed-selftest-err.txt"
+          $okfile = Join-Path $work "bricktally-selftest.txt"
+          if (Test-Path $okfile) { Remove-Item $okfile }
+          $p2 = Start-Process -FilePath $installed -ArgumentList "--selftest" -WorkingDirectory $work -PassThru -NoNewWindow -RedirectStandardOutput $out -RedirectStandardError $err
+          if (-not $p2.WaitForExit(180000)) {
+            Stop-Process -Id $p2.Id -Force
+            Show-Context "installed selftest timed out"
+          }
+          Write-Host "installed selftest exit=$($p2.ExitCode)"
+          if (Test-Path $out) { Get-Content $out }
+          if (Test-Path $err) { Get-Content $err }
+          if ($p2.ExitCode -ne 0) { Show-Context "installed selftest exit $($p2.ExitCode)" }
+          $desktop = Join-Path ([Environment]::GetFolderPath("Desktop")) "BrickTally.lnk"
+          $start = Join-Path $env:APPDATA "Microsoft\Windows\Start Menu\Programs\BrickTally.lnk"
+          if (-not (Test-Path $desktop)) { Show-Context "desktop shortcut missing: $desktop" }
+          if (-not (Test-Path $start)) { Show-Context "start menu shortcut missing: $start" }
+          $unins = Join-Path $env:LOCALAPPDATA "Programs\BrickTally-uninstall\unins000.exe"
+          if (-not (Test-Path $unins)) { Show-Context "uninstaller not outside the app folder: $unins" }
+          $p3 = Start-Process -FilePath $unins -ArgumentList "/VERYSILENT","/SUPPRESSMSGBOXES","/NORESTART" -Wait -PassThru
+          if ($p3.ExitCode -ne 0) { Show-Context "uninstall exit $($p3.ExitCode)" }
+          $kept = (Get-Content $marker -Raw).Trim()
+          if ($kept -ne "operator-data") { Show-Context "uninstaller changed user data: $kept" }
+          if (Test-Path $installed) { Show-Context "uninstall left BrickTally.exe in place" }
+
       - name: Zip and checksum
         shell: pwsh
         run: |
+          $ErrorActionPreference = "Stop"
           if (Test-Path dist\BrickTally-windows.zip) { Remove-Item dist\BrickTally-windows.zip }
           Compress-Archive -Path dist\BrickTally -DestinationPath dist\BrickTally-windows.zip
-          $hash = (Get-FileHash dist\BrickTally-windows.zip -Algorithm SHA256).Hash.ToLower()
-          "$hash  BrickTally-windows.zip" | Out-File -Encoding ascii dist\BrickTally-windows.zip.sha256
+          $zipHash = (Get-FileHash dist\BrickTally-windows.zip -Algorithm SHA256).Hash.ToLower()
+          "$zipHash  BrickTally-windows.zip" | Out-File -Encoding ascii dist\BrickTally-windows.zip.sha256
+          $setupHash = (Get-FileHash dist\BrickTallySetup.exe -Algorithm SHA256).Hash.ToLower()
+          "$setupHash  BrickTallySetup.exe" | Out-File -Encoding ascii dist\BrickTallySetup.exe.sha256
+          Get-Item dist\BrickTally-windows.zip, dist\BrickTally-windows.zip.sha256, dist\BrickTallySetup.exe, dist\BrickTallySetup.exe.sha256 | ForEach-Object { Write-Host "$($_.Name) $($_.Length)" }
 
       - name: Publish
         uses: softprops/action-gh-release@v2
@@ -39,5 +149,7 @@ jobs:
           files: |
             dist/BrickTally-windows.zip
             dist/BrickTally-windows.zip.sha256
+            dist/BrickTallySetup.exe
+            dist/BrickTallySetup.exe.sha256
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
